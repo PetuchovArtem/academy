@@ -10,7 +10,10 @@ public class Task4Hw1 {
 		while (result < 1_000_000) {
 
 			result = (int) Math.pow(a, counter);
-			System.out.println(result);
+			if (result < 1_000_000) {
+				System.out.println(result);
+			} else {
+			}
 			counter++;
 		}
 
