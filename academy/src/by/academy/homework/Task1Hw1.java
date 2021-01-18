@@ -8,7 +8,6 @@ public class Task1Hw1 {
 
 		int age;
 		double price;
-		double discount;
 		Scanner console = new Scanner(System.in);
 
 		System.out.println("Введите сумму покупки ");
@@ -30,7 +29,7 @@ public class Task1Hw1 {
 		} else if (price >= 400) {
 			price = price * 0.8;
 		}
-
+		console.close();
 		System.out.println("Финальная цена " + price);
 
 	}
