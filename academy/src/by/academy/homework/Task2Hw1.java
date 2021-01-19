@@ -9,6 +9,7 @@ public class Task2Hw1 {
 		Scanner a = new Scanner(System.in);
 		System.out.println("Введите тип переменной. Доступные типы: integer, double, float, char, String");
 		String dataType = a.nextLine();
+		
 		switch (dataType) {
 		case ("integer"):
 			System.out.println("Введите переменную типа integer");
