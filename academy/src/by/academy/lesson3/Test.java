@@ -2,7 +2,6 @@
 
 package by.academy.lesson3;
 
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit ;
 
 
