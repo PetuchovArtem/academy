@@ -4,6 +4,9 @@ public class Cat {
 
 	int age;
 	String nickname;
+	double money;
+	char initials;
+	boolean isHomeAnimal;
 
 	public Cat() {
 		super();
@@ -44,6 +47,39 @@ public class Cat {
 
 	public void walk() {
 		System.out.println("Walk");
+	}
+
+	public double getMoney() {
+		return money;
+	}
+
+	public void setMoney(double money) {
+		this.money = money;
+	}
+
+	public void setInitials(String nickname) {
+		this.initials = nickname.charAt(0);
+	}
+
+	public char getInitials() {
+		return initials;
+	}
+
+	public void setIsHomeAnimal(String nickname) {
+		if (nickname != null) {
+			this.isHomeAnimal = true;
+		} else {
+			this.isHomeAnimal = false;
+		}
+	}
+
+	public void isHomeAnimal() {
+		if (isHomeAnimal == true) {
+			System.out.println("Кот домашний");
+		} else {
+			System.out.println("Кот бездомный");
+		}
+
 	}
 
 }
