@@ -30,14 +30,18 @@ public class Task2 {
 			char temp = array2[0];
 			int uniqueChars = array2.length;
 			for (int j = 1; j < array2.length; j++) { // проходим по всем буквам, считаем уникальные
-					 if (temp == array2[j]) {
+					
+				еще должен быть один фор, который сравнивает
+				а первый фор просто проходит
+				
+				if (temp == array2[j]) {
 						uniqueChars--;
 						temp=array2[j];
 						System.out.println(uniqueChars);
-					} 
-
-							
-				    System.out.println(uniqueChars);
+						} 
+					 
+				temp = array2[j];
+				System.out.println(uniqueChars);
 			}
 
 		}
