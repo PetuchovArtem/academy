@@ -11,7 +11,10 @@ public class Task2 {
 //		символов минимально. Если таких слов несколько, найти первое из них.
 
 		String word;
-		int counter = 1;
+		String wordMin;
+		int tempWord;
+
+		int counter = Integer.MAX_VALUE;
 
 		System.out.println("Введите строку");
 		Scanner console = new Scanner(System.in);
@@ -19,35 +22,41 @@ public class Task2 {
 		String stroka = console.nextLine();
 
 		String[] array = stroka.split(" ");
-		System.out.println(Arrays.toString(array));
+		//System.out.println(Arrays.toString(array));
 
-		for (int i = 0; i < array.length; i++) { // берем наш массив и с каждоt слово перегоняем word
-
+		for (int i = 0; i < array.length; i++) {
 			word = array[i];
-			// System.out.println(word);
-
-			char[] array2 = word.toCharArray(); // создаем новый массив из слова word
-			char temp = array2[0];
-			int uniqueChars = array2.length;
-			for (int j = 1; j < array2.length; j++) { // проходим по всем буквам, считаем уникальные
 					
-				еще должен быть один фор, который сравнивает
-				а первый фор просто проходит
-				
-				if (temp == array2[j]) {
-						uniqueChars--;
-						temp=array2[j];
-						System.out.println(uniqueChars);
-						} 
-					 
-				temp = array2[j];
-				System.out.println(uniqueChars);
-			}
+//			if (tempWord < counter) { // надо с этим ифом разобраться и будет готово, возможно надо еще 1 цикл, чтоб подменять уже слова между собой
+//				wordMin = array[i];
+//				System.out.println(wordMin);
+//			}
+			
+			 System.out.println(word);
 
+			char[] array2 = word.toCharArray();
+
+			int uniqueChars = array2.length;
+			for (int j = 0; j < array2.length; j++) {
+				char temp = array2[j];
+				for (int n = j + 1; n < array2.length; n++) {
+					if (temp == array2[n]) {
+						uniqueChars--;
+						temp = array2[j];
+						// System.out.println(uniqueChars);
+						break;
+					}
+				}
+				if (temp != array2[j]) {
+					continue;
+				}
+				// System.out.println(uniqueChars);
+			}
+			counter = uniqueChars;
+			System.out.println(counter);
 		}
 
 		console.close();
-
 	}
 
 }
