@@ -11,8 +11,8 @@ public class Task2 {
 //		символов минимально. Если таких слов несколько, найти первое из них.
 
 		String word;
-		String wordMin;
-		int tempWord;
+		String wordMin = null;
+		int tempWord = Integer.MAX_VALUE;
 
 		int counter = Integer.MAX_VALUE;
 
@@ -22,17 +22,12 @@ public class Task2 {
 		String stroka = console.nextLine();
 
 		String[] array = stroka.split(" ");
-		//System.out.println(Arrays.toString(array));
+		// System.out.println(Arrays.toString(array));
 
 		for (int i = 0; i < array.length; i++) {
 			word = array[i];
-					
-//			if (tempWord < counter) { // надо с этим ифом разобраться и будет готово, возможно надо еще 1 цикл, чтоб подменять уже слова между собой
-//				wordMin = array[i];
-//				System.out.println(wordMin);
-//			}
-			
-			 System.out.println(word);
+
+			// System.out.println(word);
 
 			char[] array2 = word.toCharArray();
 
@@ -53,10 +48,15 @@ public class Task2 {
 				// System.out.println(uniqueChars);
 			}
 			counter = uniqueChars;
-			System.out.println(counter);
+			// System.out.println(counter);
+
+			if (tempWord > counter) {
+				wordMin = array[i];
+				tempWord = counter;
+			}
 		}
 
+		System.out.println(wordMin);
 		console.close();
 	}
-
 }
