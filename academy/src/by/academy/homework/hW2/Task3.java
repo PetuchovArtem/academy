@@ -12,8 +12,9 @@ public class Task3 {
 		Scanner console = new Scanner(System.in);
 		String wordFirst;
 		String wordSecond;
-		String wordFirstResult = "";
-		String wordSecondResult = "";
+		
+		String wordFirstResult = new String();
+		String wordSecondResult = new String();
 
 		System.out.println("Введите 2 слова, состоящих из четного кол-ва букв");
 
