@@ -15,9 +15,7 @@ public class Solution {
 				if (arr[m] - temp == k) {
 					pairsCount++;
 				}
-
 			}
-
 		}
 
 		return pairsCount;
@@ -40,7 +38,6 @@ public class Solution {
 
 		for (int i = 0; i < n; i++) {
 			arr[i] = Integer.parseInt(arrItems[i]);
-//			System.out.println(arr[i]);
 		}
 
 		int result = pairs(k, arr);

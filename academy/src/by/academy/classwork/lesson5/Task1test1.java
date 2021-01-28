@@ -12,19 +12,17 @@ public class Task1test1 {
 
 		int n = console.nextInt();
 
-
 		String[] arr = new String[n];
-		
+
 		System.out.println("Введите строки: ");
-						
+		console.nextLine();
 		for (int i = 0; i < n; i++) {
-			arr[i] = console.nextLine();
-//			console.nextLine();
-			}
-		
+				arr[i] = console.nextLine();
+//			
+		}
+
 		String minStroka = arr[0];
 		String maxStroka = arr[0];
-
 
 		for (int j = 0; j < n; j++) {
 			if (minStroka.length() > arr[j].length()) {

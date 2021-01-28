@@ -20,14 +20,10 @@ public class Task2 {
 		Scanner console = new Scanner(System.in);
 
 		String stroka = console.nextLine();
-
 		String[] array = stroka.split(" ");
-		// System.out.println(Arrays.toString(array));
 
 		for (int i = 0; i < array.length; i++) {
 			word = array[i];
-
-			// System.out.println(word);
 
 			char[] array2 = word.toCharArray();
 
@@ -38,17 +34,14 @@ public class Task2 {
 					if (temp == array2[n]) {
 						uniqueChars--;
 						temp = array2[j];
-						// System.out.println(uniqueChars);
 						break;
 					}
 				}
 				if (temp != array2[j]) {
 					continue;
 				}
-				// System.out.println(uniqueChars);
 			}
 			counter = uniqueChars;
-			// System.out.println(counter);
 
 			if (tempWord > counter) {
 				wordMin = array[i];
