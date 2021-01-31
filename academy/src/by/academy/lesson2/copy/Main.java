@@ -1,4 +1,4 @@
-package by.academy.lesson2;
+package by.academy.lesson2.copy;
 
 public class Main {
 
