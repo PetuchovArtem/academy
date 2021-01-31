@@ -34,7 +34,7 @@ public class Deal {
 			}
 		}
 
-		System.out.println(Arrays.toString(playerCard));
+//		System.out.println(Arrays.toString(playerCard));
 
 		for (int m = 0; m < players; m++) {
 			System.out.println("Карты игрока " + (m + 1) + " :");
