@@ -26,7 +26,7 @@ public class Task2 {
 		}
 		System.out.println(counter);
 		
-		//System.out.println(text.split(regExp).length);
+		System.out.println(text.split(regExp).length);
 		
 
 	}
