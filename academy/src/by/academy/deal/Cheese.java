@@ -5,6 +5,10 @@ public class Cheese extends Product {
 	Double weight;
 	Boolean blue;
 
+	Cheese() {
+		super();
+	}
+
 	public void Weight(double weight) {
 		this.weight = weight;
 	}
