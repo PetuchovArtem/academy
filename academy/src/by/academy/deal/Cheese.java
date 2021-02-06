@@ -3,7 +3,7 @@ package by.academy.deal;
 public class Cheese extends Product {
 
 	Double weight;
-	Boolean blue;
+	Integer age;
 
 	Cheese() {
 		super();
@@ -13,10 +13,9 @@ public class Cheese extends Product {
 		this.weight = weight;
 	}
 
-	public Boolean Blue(Boolean blue) {
-		this.blue = blue;
-		return blue;
-	}
+	public void Age(Integer age) {
+		this.age = age;
+		}
 
 	public Double getWeight() {
 		return weight;
@@ -26,12 +25,14 @@ public class Cheese extends Product {
 		this.weight = weight;
 	}
 
-	public Boolean getBlue() {
-		return blue;
+	public Integer getAge() {
+		return age;
 	}
 
-	public void setBlue(Boolean blue) {
-		this.blue = blue;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
+
+
 
 }

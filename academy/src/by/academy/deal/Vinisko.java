@@ -3,7 +3,7 @@ package by.academy.deal;
 public class Vinisko extends Product {
 
 	Double volume;
-	Boolean status;
+	String color;
 
 	Vinisko() {
 		super();
@@ -13,10 +13,9 @@ public class Vinisko extends Product {
 		this.volume = volume;
 	}
 
-	public Boolean Status(Boolean status) {
-		this.status = status;
-		return status;
-	}
+	public void Color(String color) {
+		this.color = color;
+		}
 
 	public Double getVolume() {
 		return volume;
@@ -26,12 +25,13 @@ public class Vinisko extends Product {
 		this.volume = volume;
 	}
 
-	public Boolean getStatus() {
-		return status;
+	public String getColor() {
+		return color;
 	}
 
-	public void setStatus(Boolean status) {
-		this.status = status;
+	public void setColor(String color) {
+		this.color = color;
 	}
+
 
 }
