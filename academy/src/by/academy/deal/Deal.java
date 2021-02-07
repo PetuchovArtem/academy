@@ -1,14 +1,14 @@
 package by.academy.deal;
 
 public class Deal {
-	
+
 	public final static int DEFAULT_PRODUCT_SIZE = 2;
 	Person seller;
 	Person buyer;
 	Product[] products;
 	String dealDate;
 	double price = 0;
-	private int productCounter=0;
+	private int productCounter = 0;
 
 	Deal() {
 		super();
@@ -30,10 +30,9 @@ public class Deal {
 	}
 
 	public void addProducts(Product product) {
-		
-	} 
 
-	
+	}
+
 	public void addProduct(Product product) {
 
 		if (products == null) {
@@ -45,49 +44,39 @@ public class Deal {
 		}
 		products[productCounter++] = product;
 	}
-	
-	
+
 	private void expandProductArray() {
 		Product[] tempArray = new Product[products.length * 2 + 1];
 		System.arraycopy(products, 0, tempArray, 0, products.length);
 		products = tempArray;
 	}
-	
-	
-	
-	private void printBill() {
+
+	public void printBill() {
 		double summ = 0;
-		System.out.println("Сделка совершена ");
-		for (Product product : products) {
+		System.out.println("Сделка совершена " + dealDate);
+				for (Product product : products) {
 			double totalProductPrice = product.getPrice() * product.getQuantity();
 			summ += totalProductPrice;
-			System.out.println("Имя: " + product.getManufacture() + " " + product.getPrice() + "X"
-					+ product.getQuantity() + "=" + totalProductPrice);
+			System.out.println("---");
+			System.out.println("Имя: " + product.getName());
+			System.out.println ("Стоимость за еденицу " + product.getPrice() + " Количество товара "
+					+ product.getQuantity()); 
+			System.out.println ("Итого по продукту " + totalProductPrice);
 		}
+		System.out.println("-----------------------------------");
 		System.out.println("Сумма всей сделки " + summ);
 		buyer.setMoney(buyer.getMoney() - summ);
 		seller.setMoney(seller.getMoney() + summ);
-		System.out.println("Деньги покупателя " + buyer.getMoney());
-		System.out.println("Деньги продавца " + seller.getMoney());
-
 	}
-	
-	
+
 	public void deal() {
 		double sum = 0;
 		for (Product product : products) {
 			sum += product.getPrice() * product.getQuantity();
 		}
-		if (sum > buyer.getMoney()) {
-			System.out.println("Недостаточно средств! ");
-		} else {
-			printBill();
-		}
+		printBill();
 	}
-	
-	
-	
-	
+
 	public Person getSeller() {
 		return seller;
 	}
