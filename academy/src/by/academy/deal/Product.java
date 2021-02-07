@@ -22,14 +22,12 @@ public class Product {
 
 	// create discount
 	public double disount() {
-		if (quantity > 20) {
+		if (quantity > 5) {
 			disount = 1 - 0.1;
 		}
 		return disount;
 	}
 	
-
-
 	public String getName() {
 		return name;
 	}

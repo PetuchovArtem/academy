@@ -20,7 +20,7 @@ public class Deal {
 	
 	
 	
-	public void addProduct(Product product) {
+	public void addProduct1(Product p) {
 
 		if (products == null) {
 			products = new Product[DEFAULT_PRODUCT_SIZE];
@@ -29,8 +29,8 @@ public class Deal {
 				expandProductArray();
 			}
 		}
-		products[productCounter++] = product;
-		System.out.println(product.getName());
+		products[productCounter++] = p;
+		System.out.println(p.getName());
 	}
 
 	
@@ -50,7 +50,7 @@ public class Deal {
 			
 	}
 
-	public void calculate (Product[] products) {
+	public void calculate (Product) {
 		double checkSum=0;
 		for (Product tmp : products) {
 			System.out.println(tmp.getName());

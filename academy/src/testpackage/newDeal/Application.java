@@ -7,7 +7,9 @@ public class Application {
 		Product firstProd = new Product("Чипсы", 1, 20);
 		Product secondProd = new Product("Пиво", 2, 10);
 		
-		Vine firstVine = new Vine("Шардоне", 4, 20, "red");
+		Product firstVine = new Vine("Шардоне", 4, 20, "red");
+		
+		Product p = new Product("Пиво", 2, 10);
 		
 		Deal deal1= new Deal("07-02-2021", 0);
 		
@@ -26,7 +28,7 @@ public class Application {
 
 		
 		
-		
+		deal1.addProduct1(p);
 		System.out.println(firstProd.calcProduct()+firstVine.calcProduct()+secondProd.calcProduct());
 			
 		

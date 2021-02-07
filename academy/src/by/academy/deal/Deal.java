@@ -7,8 +7,8 @@ public class Deal {
 	Person buyer;
 	Product[] products;
 	String dealDate;
-	double price = 0;
 	private int productCounter = 0;
+	double summ = 0;
 
 	Deal() {
 		super();
@@ -20,17 +20,16 @@ public class Deal {
 		this.dealDate = dealDate;
 	}
 
-	public double checkBill() {
-		double checkSum = 0.0;
-		for (Product tmp : products) {
-			System.out.println(tmp.getName());
-			checkSum += tmp.getPrice() * tmp.disount() * tmp.getQuantity();
+	public void checkBill() {
+		for (Product product : products) {
+			double totalProductPrice = product.getPrice() * product.getQuantity() * product.disount();
+			summ += totalProductPrice;
+			System.out.println("---");
+			System.out.println("Имя: " + product.getName());
+			System.out.println(
+					"Стоимость за еденицу " + product.getPrice() + " Количество товара " + product.getQuantity());
+			System.out.println("Итого по продукту " + totalProductPrice);
 		}
-		return checkSum;
-	}
-
-	public void addProducts(Product product) {
-
 	}
 
 	public void addProduct(Product product) {
@@ -52,17 +51,8 @@ public class Deal {
 	}
 
 	public void printBill() {
-		double summ = 0;
 		System.out.println("Сделка совершена " + dealDate);
-				for (Product product : products) {
-			double totalProductPrice = product.getPrice() * product.getQuantity();
-			summ += totalProductPrice;
-			System.out.println("---");
-			System.out.println("Имя: " + product.getName());
-			System.out.println ("Стоимость за еденицу " + product.getPrice() + " Количество товара "
-					+ product.getQuantity()); 
-			System.out.println ("Итого по продукту " + totalProductPrice);
-		}
+		checkBill();
 		System.out.println("-----------------------------------");
 		System.out.println("Сумма всей сделки " + summ);
 		buyer.setMoney(buyer.getMoney() - summ);
@@ -70,7 +60,6 @@ public class Deal {
 	}
 
 	public void deal() {
-		
 		printBill();
 	}
 
