@@ -5,7 +5,9 @@ public class Product {
 	String name;
 	Double price;
 	String manufacture;
-	Integer quantity;
+	Integer quantity = 0;
+
+	double disount = 1;
 
 	Product() {
 		super();
@@ -17,6 +19,16 @@ public class Product {
 		this.manufacture = manufacture;
 		this.quantity = quantity;
 	}
+
+	// create discount
+	public double disount() {
+		if (quantity > 20) {
+			disount = 1 - 0.1;
+		}
+		return disount;
+	}
+	
+
 
 	public String getName() {
 		return name;

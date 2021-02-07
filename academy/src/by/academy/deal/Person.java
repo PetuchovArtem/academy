@@ -7,10 +7,15 @@ public class Person {
 	String email;
 	Double money;
 
-	Person() {
+	public Person(String name, String phone, String email, double money) {
 		super();
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.money = money;
+		
 	}
-	
+
 	
 	public String getName() {
 		return name;
