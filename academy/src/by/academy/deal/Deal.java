@@ -70,10 +70,7 @@ public class Deal {
 	}
 
 	public void deal() {
-		double sum = 0;
-		for (Product product : products) {
-			sum += product.getPrice() * product.getQuantity();
-		}
+		
 		printBill();
 	}
 
