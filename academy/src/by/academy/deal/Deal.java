@@ -32,6 +32,8 @@ public class Deal {
 		}
 	}
 
+
+
 	public void addProduct(Product product) {
 
 		if (products == null) {

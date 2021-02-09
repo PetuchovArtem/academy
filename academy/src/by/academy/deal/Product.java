@@ -5,7 +5,7 @@ public class Product {
 	String name;
 	Double price;
 	String manufacture;
-	Integer quantity = 0;
+	Integer quantity = 0; 
 
 	double disount = 1;
 
