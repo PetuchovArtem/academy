@@ -9,7 +9,7 @@ public class Cheese extends Product {
 		super(name, price, manufacture, quantity);
 		this.age = age;
 	}
- 
+
 	// create discount for cheese
 	@Override
 	public double disount() {

@@ -8,8 +8,8 @@ public class Vinisko extends Product {
 	public Vinisko(double price, String name, String manufacture, int quantity, String color) {
 		super(name, price, manufacture, quantity);
 		this.color = color;
-	} 
-	 
+	}
+
 	// create discount for Vinisko
 	@Override
 	public double disount() {
@@ -20,7 +20,6 @@ public class Vinisko extends Product {
 		} else if (color.equals("triTopora")) {
 			disount = 1 - 0.5;
 		}
-
 		return disount;
 	}
 

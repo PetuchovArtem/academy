@@ -22,7 +22,7 @@ public class Deal {
 
 	public void checkBill() {
 		for (Product product : products) {
-			double totalProductPrice = product.getPrice() * product.getQuantity() * product.disount();
+			double totalProductPrice = product.calcFinalPrice();
 			summ += totalProductPrice;
 			System.out.println("---");
 			System.out.println("Имя: " + product.getName());
