@@ -1,68 +1,31 @@
 package by.academy.deal;
 
 public class Deal {
+	public final static int DEFAULT_PRODUCT_SIZE = 3;
 
-	public final static int DEFAULT_PRODUCT_SIZE = 2;
+	String date;
 	Person seller;
 	Person buyer;
 	Product[] products;
-	String dealDate;
-	private int productCounter = 0;
-	double summ = 0;
+	int productCounter;
 
-	Deal() {
+	public Deal() {
 		super();
 	}
 
-	public Deal(Person seller, Person buyer, String dealDate) {
+	public Deal(String date, Person seller, Person buyer) {
+		super();
+		this.date = date;
 		this.seller = seller;
 		this.buyer = buyer;
-		this.dealDate = dealDate;
 	}
 
-	public void checkBill() {
-		for (Product product : products) {
-			double totalProductPrice = product.calcFinalPrice();
-			summ += totalProductPrice;
-			System.out.println("---");
-			System.out.println("Имя: " + product.getName());
-			System.out.println(
-					"Стоимость за еденицу " + product.getPrice() + " Количество товара " + product.getQuantity());
-			System.out.println("Итого по продукту " + totalProductPrice);
-		}
+	public String getDate() {
+		return date;
 	}
 
-
-
-	public void addProduct(Product product) {
-
-		if (products == null) {
-			products = new Product[DEFAULT_PRODUCT_SIZE];
-		} else {
-			if (productCounter + 1 > products.length) {
-				expandProductArray();
-			}
-		}
-		products[productCounter++] = product;
-	}
-
-	private void expandProductArray() {
-		Product[] tempArray = new Product[products.length * 2 + 1];
-		System.arraycopy(products, 0, tempArray, 0, products.length);
-		products = tempArray;
-	}
-
-	public void printBill() {
-		System.out.println("Сделка совершена " + dealDate);
-		checkBill();
-		System.out.println("-----------------------------------");
-		System.out.println("Сумма всей сделки " + summ);
-		buyer.setMoney(buyer.getMoney() - summ);
-		seller.setMoney(seller.getMoney() + summ);
-	}
-
-	public void deal() {
-		printBill();
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public Person getSeller() {
@@ -89,12 +52,75 @@ public class Deal {
 		this.products = products;
 	}
 
-	public String getDealDate() {
-		return dealDate;
+	public void addProduct(Product product) {
+		if (products == null) {
+			products = new Product[DEFAULT_PRODUCT_SIZE];
+		} else {
+			if (productCounter + 1 > products.length) {
+				expandProductArray();
+			}
+		}
+		products[productCounter++] = product;
 	}
 
-	public void setDealDate(String dealDate) {
-		this.dealDate = dealDate;
+	public void deleteProduct(int index) {
+		if (index > products.length || index < 0) {
+			System.out.println("Index of bound");
+			return;
+		}
+		if (productCounter != index) {
+			System.arraycopy(products, index + 1, products, index, products.length - index - productCounter);
+		}
+		products[productCounter] = null;
+		productCounter--;
 	}
 
+	private void expandProductArray() {
+		Product[] tempArray = new Product[products.length * 2 + 1];
+		System.arraycopy(products, 0, tempArray, 0, products.length);
+		products = tempArray;
+	}
+
+	private void printBill() {
+		double summ = 0;
+		System.out.println("Bill " + date);
+		System.out.println();
+		for (Product product : products) {
+			if (product != null) {
+				double totalProductPrice = product.getQuantity() * product.calcFinalPrice();
+				summ += totalProductPrice;
+				System.out.println(product.getType() + " " + product.calcFinalPrice() + " X " + product.getQuantity()
+						+ " = " + totalProductPrice + "(Discount " + product.discount() + "%)");
+			}
+		}
+		System.out.println();
+		System.out.println("Total " + summ);
+		buyer.setMoney(buyer.getMoney() - summ);
+		seller.setMoney(seller.getMoney() + summ);
+	}
+
+	public void printProducts() {
+		for (int i = 0; i < productCounter; i++) {
+			Product p = products[i];
+			System.out.println("Name: " + p.getType());
+			System.out.println("Manufacturer: " + p.getManufacturer());
+			System.out.println("Total Price: " + p.calcFinalPrice());
+			System.out.println("-----------------");
+		}
+	}
+
+	public void deal() {
+		double sum = 0;
+		for (Product product : products) {
+			if (product != null) {
+				sum += product.calcFinalPrice() * product.getQuantity();
+			}
+		}
+		if (sum > buyer.getMoney()) {
+			System.out.println("Not enought money! ");
+		} else {
+			printBill();
+		}
+	}
 }
+

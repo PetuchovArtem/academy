@@ -1,37 +1,44 @@
 package testpackage.newDeal;
 
+import java.util.Scanner;
+
 public class Application {
 
 	public static void main(String[] args) {
-	
-		Product firstProd = new Product("Чипсы", 1, 20);
-		Product secondProd = new Product("Пиво", 2, 10);
-		
-		Product firstVine = new Vine("Шардоне", 4, 20, "red");
-		
-		Product p = new Product("Пиво", 2, 10);
-		
-		Deal deal1= new Deal("07-02-2021", 0);
-		
-				
-//		firstProd.printProduct();
-//		secondProd.printProduct();
-//		firstVine.printProduct();
-		
-		
-//					
-		deal1.deal();
-		firstProd.calcProduct();
-		secondProd.calcProduct();
-		firstVine.calcProduct();
-		System.out.println("-----------------------------------------");
-
-		
-		
-		deal1.addProduct1(p);
-		System.out.println(firstProd.calcProduct()+firstVine.calcProduct()+secondProd.calcProduct());
-			
-		
+		Person seller = new Person();
+		Person buyer = new Person();
+		DealDate date = new DealDate();
+		AmericanPhoneValidator apv = new AmericanPhoneValidator();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter phone number:");
+		if (apv.validate(sc.next())) {
+			System.out.println("TRUE");
+		} else {
+			System.out.println("FALSE");
 		}
+		System.out.print("Enter date(dd/MM/yyyy or dd-MM-yyyy ):");
+		date.setDate(sc.next());
+		
+		System.out.println(date.checkDate());
+		date.printDate();
+		
+		System.out.println(date.checkDate());
+		System.out.print("Enter buyer(name money):");
+		buyer.setName(sc.next("[a-zA-Z]+"));
+		buyer.setMoney(sc.nextDouble());
+		System.out.print("Enter seller(name money):");
+		seller.setName(sc.next("[a-zA-Z]+"));
+		seller.setMoney(sc.nextDouble());
+		date.printDate();
 
+
+		Deal deal = new Deal("10-02-2021", seller, buyer);
+
+		deal.addProduct(new Vegetables(50, "Carrot", "AgroHolding", 5, "BLR"));
+		deal.addProduct(new Milk(80, "Milk", "Cow", 10, 2.5, 1.0));
+		deal.addProduct(new Fruit(80, "Orange", "BananaInc", 5, "ECU", 25));
+
+		deal.deal();
+		sc.close();
+	}
 }

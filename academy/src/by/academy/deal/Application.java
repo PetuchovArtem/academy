@@ -6,16 +6,17 @@ public class Application {
 
 		Product cheese = new Cheese(20, "Пармезан", "Итальянская сыроварня", 2, 2);
 		Product vinisko = new Vinisko(30, "Шанет", "Минский ликероводоынй", 10, "triTopora");
+		Product ham = new Ham(20, "Пармезан", "Итальянская сыроварня", 2, 2);
 
-		Person seller = new Person("ArtemSeller", "375440000000", "testemail@gmail.com", 500.00);
-		Person buyer = new Person("ArtemBuyer", "375440000000", "testemail@gmail.com", 500.00);
+		Person seller = new Person("ArtemSeller", "375440000000", "testemail@gmail.com", 10000.00);
+		Person buyer = new Person("ArtemBuyer", "375440000000", "testemail@gmail.com", 10000.00);
 
-		Deal deal = new Deal(seller, buyer, "07-02-2021");
+		Deal deal = new Deal("07-02-2021", seller, buyer);
 
 		deal.addProduct(cheese);
 		deal.addProduct(vinisko);
-		
-		
+		deal.addProduct(ham);
+
 		deal.deal();
 	}
 
