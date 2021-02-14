@@ -1,15 +1,19 @@
 package by.academy.deal;
 
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.text.ParseException;
 
 public class DealDateValidator {
 	String pattern1 = "\\d{2}-\\d{2}-\\d{4}";
 	String pattern2 = "\\d{2}/\\d{2}/\\d{4}";
 	static String date;
+	Date dateDeal = new Date();
+	SimpleDateFormat df = new SimpleDateFormat("'Day: '<dd> \n'Month: '<MM>' \nYear: '<yyyy>");
 
 	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-	
+
 	public DealDateValidator() {
 		super();
 	}
@@ -27,20 +31,19 @@ public class DealDateValidator {
 		this.date = date;
 	}
 
-	public boolean checkDate() {
+	public boolean checkDate() throws ParseException {
 		if (date.matches(pattern1)) {
-				}
-		if (date.matches(pattern2)) {
-				}
+			SimpleDateFormat df1 = new SimpleDateFormat("dd-MM-yyyy");
+			dateDeal = df1.parse(date);
+			System.out.println(df.format(dateDeal.getTime()));
+			return true;
+		} else if (date.matches(pattern2)) {
+			SimpleDateFormat df1 = new SimpleDateFormat("dd/MM/yyyy");
+			dateDeal = df1.parse(date);
+			System.out.println(df.format(dateDeal.getTime()));
+			return true;
+		}
 		return false;
 	}
 
-	public void printDate() {
-//		localDate = localDate.plusYears(30);
-//		localDate = localDate.minusMonths(7);
-//		localDate = localDate.minusDays(3);
-		System.out.println(date);
-	}
-	
-	
 }

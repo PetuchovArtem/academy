@@ -13,8 +13,8 @@ public class Cheese extends Product {
 	// create discount for cheese
 	@Override
 	public double disount() {
-		if (age > 20) {
-			disount = 1 - 0.2;
+		if (age > 5) {
+			disount = 1 - 0.3;
 		}
 		return disount;
 	}

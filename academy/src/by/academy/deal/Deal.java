@@ -1,5 +1,7 @@
 package by.academy.deal;
 
+import java.time.LocalDate;
+
 public class Deal {
 	public final static int DEFAULT_PRODUCT_SIZE = 3;
 
@@ -8,6 +10,7 @@ public class Deal {
 	Person buyer;
 	Product[] products;
 	int productCounter;
+	LocalDate deadlinDate;
 
 	public Deal() {
 		super();
@@ -86,10 +89,10 @@ public class Deal {
 		System.out.println("--------------------------------");
 		for (Product product : products) {
 			if (product != null) {
-				double totalProductPrice = product.getQuantity() * product.calcFinalPrice();
+				double totalProductPrice = product.calcFinalPrice();
 				summ += totalProductPrice;
-				System.out.println(product.getName() + " " + product.calcFinalPrice() + " X " + product.getQuantity()
-						+ " = " + totalProductPrice + "(Скидка " + product.disount() + "%)");
+				System.out.println(product.getName() + " " + product.getPrice() + " X " + product.getQuantity() + " = "
+						+ totalProductPrice + "(Скидка " + ((1 - product.disount()) * 100) + "%)");
 			}
 		}
 		System.out.println("--------------------------------");
@@ -120,5 +123,12 @@ public class Deal {
 		} else {
 			printBill();
 		}
+	}
+
+	public void deadLine() {
+		LocalDate today = LocalDate.now();
+		deadlinDate = today.plusDays(10);
+		System.out.println(deadlinDate);
+
 	}
 }
