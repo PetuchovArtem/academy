@@ -13,9 +13,8 @@ public class Deal {
 		super();
 	}
 
-	public Deal(String date, Person seller, Person buyer) {
+	public Deal(Person seller, Person buyer) {
 		super();
-		this.date = date;
 		this.seller = seller;
 		this.buyer = buyer;
 	}
@@ -83,18 +82,18 @@ public class Deal {
 
 	private void printBill() {
 		double summ = 0;
-		System.out.println("Bill " + date);
-		System.out.println();
+		System.out.println("Дата сделки " + DealDateValidator.getDate());
+		System.out.println("--------------------------------");
 		for (Product product : products) {
 			if (product != null) {
 				double totalProductPrice = product.getQuantity() * product.calcFinalPrice();
 				summ += totalProductPrice;
-				System.out.println(product.getType() + " " + product.calcFinalPrice() + " X " + product.getQuantity()
-						+ " = " + totalProductPrice + "(Discount " + product.discount() + "%)");
+				System.out.println(product.getName() + " " + product.calcFinalPrice() + " X " + product.getQuantity()
+						+ " = " + totalProductPrice + "(Скидка " + product.disount() + "%)");
 			}
 		}
-		System.out.println();
-		System.out.println("Total " + summ);
+		System.out.println("--------------------------------");
+		System.out.println("Сумма " + summ);
 		buyer.setMoney(buyer.getMoney() - summ);
 		seller.setMoney(seller.getMoney() + summ);
 	}
@@ -102,9 +101,9 @@ public class Deal {
 	public void printProducts() {
 		for (int i = 0; i < productCounter; i++) {
 			Product p = products[i];
-			System.out.println("Name: " + p.getType());
-			System.out.println("Manufacturer: " + p.getManufacturer());
-			System.out.println("Total Price: " + p.calcFinalPrice());
+			System.out.println("Наименование: " + p.getName());
+			System.out.println("Производитель: " + p.getManufacture());
+			System.out.println("Сумма сделки: " + p.calcFinalPrice());
 			System.out.println("-----------------");
 		}
 	}
@@ -117,10 +116,9 @@ public class Deal {
 			}
 		}
 		if (sum > buyer.getMoney()) {
-			System.out.println("Not enought money! ");
+			System.out.println("Недостаточно денег ");
 		} else {
 			printBill();
 		}
 	}
 }
-
