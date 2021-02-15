@@ -13,8 +13,8 @@ public class Application {
 		Product vinisko = new Vinisko(30, "Шанет", "Минский ликероводоынй", 10, "triTopora");
 		Product ham = new Ham(20, "Хамон", "ОАО ГрандСтройТрескМоллСырДеллХамВарПил", 2, 20);
 
-		Person seller = new Person("ArtemSeller", "+375440000000", "testemail@gmail.com", 10000.00);
-		Person buyer = new Person("ArtemBuyer", "+375440000000", "testemail@gmail.com", 10000.00);
+		Person seller = new Person("ArtemSeller", "+375440000000", "testemail@gmail.com", 10000.00, "");
+		Person buyer = new Person("ArtemBuyer", "+375440000000", "testemail@gmail.com", 10000.00, "");
 
 		DealDateValidator date = new DealDateValidator();
 		Scanner console = new Scanner(System.in);
@@ -37,14 +37,25 @@ public class Application {
 		deal.addProduct(vinisko);
 		deal.addProduct(ham);
 
-//		System.out.println("printProducts: ");
-//		
-//		deal.printProducts();
-//		System.out.println("--------------------------------");
-		
+		System.out.println("printProducts: ");
+		System.out.println("--------------------------------");
+		deal.printProducts();
+
 		deal.deal();
+		System.out.println("--------------------------------");
 		System.out.print("Deal DeadLinel: ");
+
 		deal.deadLine();
+
+		System.out.print("Введите дату рождения покупателя: ");
+
+		String dateOfBirth = console.next();
+		buyer.setDateOfBirth(dateOfBirth);
+		date.setDate(buyer.getDateOfBirth());
+
+		date.checkDate();
+
+
 		console.close();
 	}
 

@@ -36,13 +36,16 @@ public class DealDateValidator {
 			SimpleDateFormat df1 = new SimpleDateFormat("dd-MM-yyyy");
 			dateDeal = df1.parse(date);
 			System.out.println(df.format(dateDeal.getTime()));
+			System.out.println(true);
 			return true;
 		} else if (date.matches(pattern2)) {
 			SimpleDateFormat df1 = new SimpleDateFormat("dd/MM/yyyy");
 			dateDeal = df1.parse(date);
 			System.out.println(df.format(dateDeal.getTime()));
+			System.out.println(true);
 			return true;
 		}
+		System.out.print(false);
 		return false;
 	}
 

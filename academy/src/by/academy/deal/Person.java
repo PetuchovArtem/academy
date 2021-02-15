@@ -2,21 +2,32 @@ package by.academy.deal;
 
 public class Person {
 
-	String name;
-	String phone;
-	String email;
-	Double money;
+	private String name;
+	private String phone;
+	private String email;
+	private Double money;
+	private String dateOfBirth;
 
-	public Person(String name, String phone, String email, double money) {
+	public Person(String name, String phone, String email, double money, String dateOfBirth) {
 		super();
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
 		this.money = money;
-		
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	
+	public String getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+
+	public void setDateOfBirth(String dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -49,4 +60,4 @@ public class Person {
 		this.money = money;
 	}
 
-}
+   }
