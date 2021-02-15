@@ -73,7 +73,7 @@ public class Deal {
 		if (productCounter != index) {
 			System.arraycopy(products, index + 1, products, index, products.length - index - productCounter);
 		}
-		products[productCounter] = null;
+		products[productCounter - 1] = null;
 		productCounter--;
 	}
 
