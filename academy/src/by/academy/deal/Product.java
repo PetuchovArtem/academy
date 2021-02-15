@@ -2,10 +2,10 @@ package by.academy.deal;
 
 public abstract class Product {
 
-	String name;
-	Double price;
-	String manufacture;
-	Integer quantity = 0; 
+	private String name;
+	private Double price;
+	private String manufacture;
+	private Integer quantity = 0; 
 
 	double disount = 1;
 

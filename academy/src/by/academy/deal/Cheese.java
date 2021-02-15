@@ -2,7 +2,7 @@ package by.academy.deal;
 
 public class Cheese extends Product {
 
-	Double weight;
+	private Double weight;
 	private Integer age;
 
 	public Cheese(double price, String name, String manufacture, int quantity, Integer age) {

@@ -74,9 +74,13 @@ public class Application {
 				break;
 			case 5:
 				menu = false;
+				System.out.println("------------------");
+				System.out.println("Выход из меню");
 				break;
 			default:
 				menu = false;
+				System.out.println("------------------");
+				System.out.println("Выход из меню");
 				break;
 			}
 
