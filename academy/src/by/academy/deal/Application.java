@@ -21,19 +21,23 @@ public class Application {
 		Person buyer = new Person("ArtemBuyer", "+375440000000", "testemail@gmail.com", 10000.00, "");
 
 		DealDateValidator date = new DealDateValidator();
-
+		BelarusPhoneValidator q = new BelarusPhoneValidator();
+		EmailValidator e = new EmailValidator();
+		
+		
 		while (menu) {
 			System.out.println("1: Валидация даты сделки: ");
 			System.out.println("2: Валидация номера телефона: ");
 			System.out.println("3: Deal: ");
 			System.out.println("4: Валидация даты рождения покупателя: ");
-			System.out.println("5: Выход");
+			System.out.println("5: Валидация e-mail");
+			System.out.println("6: Выход");
 
 			menuChoose = console.nextInt();
 
 			Deal deal = new Deal(seller, buyer);
 
-			BelarusPhoneValidator q = new BelarusPhoneValidator();
+
 
 			switch (menuChoose) {
 			case 1:
@@ -73,6 +77,12 @@ public class Application {
 				date.checkDate();
 				break;
 			case 5:
+				System.out.print("Введите e-mail покупателя: ");
+				String email = console.next();
+				buyer.setEmail(email);
+				e.validator(email);
+				break;
+			case 6:
 				menu = false;
 				System.out.println("------------------");
 				System.out.println("Выход из меню");
