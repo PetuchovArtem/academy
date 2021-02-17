@@ -9,7 +9,7 @@ public class EmailValidator implements Validator {
     @Override
     public boolean validator(String strEmailValidator) {
        		Matcher matcher = pattern.matcher(strEmailValidator);
-    		return matcher.matches();
+       			return matcher.matches();
     }
 }
 

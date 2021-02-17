@@ -80,7 +80,7 @@ public class Application {
 				System.out.print("Введите e-mail покупателя: ");
 				String email = console.next();
 				buyer.setEmail(email);
-				e.validator(email);
+				System.out.println (e.validator(email));
 				break;
 			case 6:
 				menu = false;
