@@ -10,36 +10,34 @@ public class PrintDays {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-//		WeekDays currentDay = WeekDays.SUBBOTA;
-//
-//		WeekDays[] currentDay2 = WeekDays.values();
-//
-//		switch (currentDay) {
-//		case PONEDELNIK:
-//			System.out.println("Сегодня понедельник");
-//			break;
-//		case VTORNIK:
-//			System.out.println("Сегодня вторник");
-//			break;
-//		case SREDA:
-//			System.out.println("Сегодня среда");
-//			break;
-//		case CHETVERG:
-//			System.out.println("Сегодня четверг");
-//			break;
-//		case PIATNIZZA:
-//			System.out.println("Сегодня пятница");
-//			break;
-//		case SUBBOTA:
-//			System.out.println("Сегодня суббота");
-//			break;
-//		case VOSKRESENIE:
-//			System.out.println("Сегодня воскресенье");
-//			break;
-//		default:
-//			System.out.println("Ты пьян");
-//		}
-//
+		WeekDays currentDay = WeekDays.SUBBOTA;
+		
+		switch (currentDay) {
+		case PONEDELNIK:
+			System.out.println("Сегодня понедельник");
+			break;
+		case VTORNIK:
+			System.out.println("Сегодня вторник");
+			break;
+		case SREDA:
+			System.out.println("Сегодня среда");
+			break;
+		case CHETVERG:
+			System.out.println("Сегодня четверг");
+			break;
+		case PIATNIZZA:
+			System.out.println("Сегодня пятница");
+			break;
+		case SUBBOTA:
+			System.out.println("Сегодня суббота");
+			break;
+		case VOSKRESENIE:
+			System.out.println("Сегодня воскресенье");
+			break;
+		default:
+			System.out.println("Ты пьян");
+		}
+
 //		for (WeekDays a : WeekDays.values()) {
 //			System.out.println(a + " " + a.ordinal());
 //		}
@@ -58,8 +56,8 @@ public class PrintDays {
 //		System.out.println(date1);
 
 		
-		Box<Cat> b1 = new Box<Cat>();
-		System.out.print(b1.toString());		
+//		Box<Cat> b1 = new Box<Cat>();
+//		System.out.print(b1.toString());		
 	}
 
 }
