@@ -74,25 +74,8 @@ public class Date {
 		}
 	}
 
-	public void rasschetDneiVPromezhutkeTest(String date1, String date2) throws ParseException {
-
-		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-		java.util.Date dayWeek = null;
-		dayWeek = format.parse(date1);
-		
-		java.util.Date dayWeek2 = null;
-		dayWeek2 = format.parse(date2);
-		
-		System.out.println(new SimpleDateFormat("D").format(dayWeek));
-		System.out.println(new SimpleDateFormat("D").format(dayWeek2));
-		
-//		int i1 = Integer.parseInt(new SimpleDateFormat("D").format(dayWeek));
-//		int i2 = Integer.parseInt(new SimpleDateFormat("D").format(dayWeek2));
-//
-//		System.out.print(i1 - i2);
-
-	}
-
+	
+	//рассчет между двумя датами
 	public void rasschetDneiVPromezhutke(String date1, String date2) throws ParseException {
 
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
