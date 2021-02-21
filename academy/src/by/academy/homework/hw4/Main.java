@@ -1,4 +1,4 @@
-package by.academy.homework.hw3;
+package by.academy.homework.hw4;
 
 import java.text.ParseException;
 import java.util.Scanner;
