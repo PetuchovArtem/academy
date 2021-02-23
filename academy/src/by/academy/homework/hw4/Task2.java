@@ -39,15 +39,18 @@ public class Task2<T extends Object> {
 //	нам нужно его расширить с помощью Arrays.copyOf)
 
 	// еще не доделан
-	@SuppressWarnings("unchecked")
+	
 	public void add(T item) {
 
-		for (int a = 0; a <= Array.length; a++) {
-			if (a + 1 > Array.length) {
-				Array = (T[]) new Object[Array.length * 2 + 1];
-			}
+		for (int a = 0; a < Array.length; a++) {
+//			if (Array[Array.length - 1] != null) {
+//				T[] Array2 =  (T[]) new Object[Array.length * 2 + 1];
+//				System.arraycopy(Array, 0, Array2, 0, Array.length);
+//				Array = (T[]) Array2;
+//			}
 			if (Array[a] == null) {
 				Array[a] = item;
+				break;
 			}
 		}
 	}
@@ -55,7 +58,7 @@ public class Task2<T extends Object> {
 	// 2) взятие по индексу get(int i)
 	public void get(int i) {
 		T getItem = Array[i];
-		System.out.println("Элемент равен" + getItem);
+		System.out.println("Элемент равен " + getItem);
 	}
 
 //	3) взятие последнего элемента getLast()
@@ -68,14 +71,14 @@ public class Task2<T extends Object> {
 				break;
 			}
 		}
-		System.out.println("Последний элемент" + getLastItem);
+		System.out.println("Последний элемент " + getLastItem);
 	}
 
 	// 4) взятие первого элемента getFirst()
 
 	public void getFirst() {
 		T getLastItem = Array[0];
-		System.out.println("Первый элемент элемент" + getLastItem);
+		System.out.println("Первый элемент элемент " + getLastItem);
 	}
 
 	// 5) вывод размера массива
@@ -87,12 +90,13 @@ public class Task2<T extends Object> {
 	// 6) вывод индекса последнего заполненого элемента (не путать с размерностью)
 
 	public void lastIndex() {
-		for (int k = 0; k < Array.length; k++) {
+		int k;
+		for (k = 0; k < Array.length; k++) {
 			if (Array[k] == null) {
 				break;
 			}
-			System.out.println("Последний заполненный элемент" + (k - 1));
 		}
+		System.out.println("Последний заполненный элемент " + (k - 1));
 	}
 
 	// 7) удаление элемента по индексу (remove(int i)
