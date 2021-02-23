@@ -1,7 +1,5 @@
 package by.academy.homework.hw4;
 
-import by.academy.deal.Product;
-
 //Задание 2.
 //Создать класс, который параметризуется любым типом (T). Имеет массив объектов нашего типа T.
 //Содержит пустой конструктор, который по дефолту инициализирует пустой массив размерности 16.
@@ -72,15 +70,47 @@ public class Task2<T extends Object> {
 		}
 		System.out.println("Последний элемент" + getLastItem);
 	}
-	
-	
-	//4) взятие первого элемента getFirst()
-	
+
+	// 4) взятие первого элемента getFirst()
+
 	public void getFirst() {
 		T getLastItem = Array[0];
 		System.out.println("Первый элемент элемент" + getLastItem);
 	}
-	
+
+	// 5) вывод размера массива
+
+	public void arrayLength() {
+		System.out.println("Размер массива " + Array.length);
+	}
+
+	// 6) вывод индекса последнего заполненого элемента (не путать с размерностью)
+
+	public void lastIndex() {
+		for (int k = 0; k < Array.length; k++) {
+			if (Array[k] == null) {
+				break;
+			}
+			System.out.println("Последний заполненный элемент" + (k - 1));
+		}
+	}
+
+	// 7) удаление элемента по индексу (remove(int i)
+	public void remove(int i) {
+		Array[i] = null;
+		System.out.println("Элемент с индексом " + i + " удалён");
+	}
+
+	// 8) удаление элемента по значению (remove(T obj))
+	public void remove(T obj) {
+		for (int m = 0; m < Array.length; m++) {
+			if (Array[m] == obj) {
+				Array[m] = null;
+				break;
+			}
+		}
+		System.out.println("Элемент с значением " + obj + " удалён");
+	}
 
 	public T[] getArray() {
 		return Array;
