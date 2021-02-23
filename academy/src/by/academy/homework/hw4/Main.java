@@ -33,13 +33,52 @@ public class Main {
 		Task2<Double> array = new Task2<>(10);
 		array.add(1.2);
 		array.add(1.3);
-		array.lastIndex();
-		array.get(0);	
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		array.add(1.3);
+		array.add(1.2);
+		
+			
+		System.out.println("Поcледний индекс: " + array.lastIndex());
+		array.get(7);	
 		array.getFirst();
 		array.getLast();
 		array.remove(1.3);
-		array.remove(1);
-		
+		array.remove(0);
 		array.arrayLength();
 			 
 		
