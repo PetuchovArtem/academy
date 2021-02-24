@@ -88,7 +88,7 @@ public class Date {
 
 	// рассчет между двумя датами
 	public void rasschetDneiVPromezhutke(String date1, String date2) throws ParseException {
-
+ 
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
 		LocalDate firstDay = LocalDate.parse(date1, dateTimeFormatter); 
@@ -97,7 +97,7 @@ public class Date {
 		Period period = Period.between(firstDay, secondDay);
 
 		System.out.println(period.getDays());
-
+ 
 	}
 
 	public String getDate() {
