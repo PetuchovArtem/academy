@@ -19,6 +19,18 @@ import java.util.GregorianCalendar;
 //После валидации в конструкторе создаем объекты класса Year, Month, Day.
 //Добавить метод, который проверяет высокосный ли год или нет.
 
+
+
+//сохдаем парс
+//парсим дату - берем первые 2 цифры - день
+//вторые 2 цифры в месяцы
+//4 последние в года
+//set and get
+//парсы статические
+//и единственное поле инт валуе, которые мы используем при конструировании локал дейтов
+
+
+
 public class Date {
 
 	public String date1;
@@ -79,7 +91,7 @@ public class Date {
 
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
-		LocalDate firstDay = LocalDate.parse(date1, dateTimeFormatter);
+		LocalDate firstDay = LocalDate.parse(date1, dateTimeFormatter); 
 		LocalDate secondDay = LocalDate.parse(date2, dateTimeFormatter);
 
 		Period period = Period.between(firstDay, secondDay);
