@@ -74,8 +74,7 @@ public class Date {
 		}
 	}
 
-	
-	//рассчет между двумя датами
+	// рассчет между двумя датами
 	public void rasschetDneiVPromezhutke(String date1, String date2) throws ParseException {
 
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -106,14 +105,23 @@ public class Date {
 	}
 
 	public class Year {
+		Year() {
+			super();
+		}
 
 	}
 
 	public class Month {
+		Month() {
+			super();
+		}
 
 	}
 
 	public class Day {
+		Day() {
+			super();
+		}
 
 	}
 

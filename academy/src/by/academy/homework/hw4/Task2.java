@@ -59,20 +59,26 @@ public class Task2<T extends Object> {
 
 	// 2) взятие по индексу get(int i)
 	public void get(int i) {
+						
 		T getItem = Array[i];
+		if(getItem==null) {
+			System.out.println("Элемента с индексом  " + i + " не существует");	
+		}
+		else {
 		System.out.println("Элемент равен " + getItem);
+		}
 	}
 
 //	3) взятие последнего элемента getLast()
 
 	public void getLast() {
 		T getLastItem = null;
-		for (int c = Array.length; c > Array.length; c--) {
-			if (Array[c] != null) {
-				getLastItem = Array[c];
+		for (int c = Array.length; c > 0; c--) {
+			if (Array[c-1] != null) {
+				getLastItem = Array[c-1];
 				break;
 			}
-		}
+				}
 		System.out.println("Последний элемент " + getLastItem);
 	}
 
@@ -115,7 +121,7 @@ public class Task2<T extends Object> {
 				break;
 			}
 		}
-		System.out.println("Элемент с значением " + obj + " удалён");
+		System.out.println("Элемент со значением " + obj + " удалён");
 	}
 
 	public T[] getArray() {
