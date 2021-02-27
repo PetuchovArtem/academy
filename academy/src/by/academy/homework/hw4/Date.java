@@ -80,7 +80,7 @@ public class Date {
 			break;
 		case Sunday:
 			System.out.println("Сегодня воскресенье");
-			break;
+			break;   
 		default:
 			System.out.println("Ты пьян");
 		}
