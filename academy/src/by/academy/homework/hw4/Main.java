@@ -1,6 +1,7 @@
 package by.academy.homework.hw4;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import by.academy.classwork.lesson11.MinMax;
@@ -11,7 +12,8 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		// task 1
-
+		System.out.println();
+		System.out.println("Task1");
 //		Date date1 = new Date();
 //		Date date2 = new Date();
 //
@@ -32,30 +34,33 @@ public class Main {
 //		console.close();
 
 		// task2
-//	
-//		Task2<Double> array = new Task2<>(10);
-//		array.add(1.2);
-//		array.add(1.3);
-//		
+		System.out.println();
+		System.out.println("Task2");
+        Task2<Integer> array = new Task2<>(2);
+        array.add(1);
+        array.add(2);
+        array.add(3);
+        System.out.println(array.get(0));
+        System.out.println(array.getLast());
+        System.out.println(array.getFirst());
+        System.out.println(array.arrayLength());
+        System.out.println(array.getIndexLastElement());
+        System.out.println(array.remove(Integer.valueOf(1)));
+        System.out.println(array.remove(1));
+        System.out.println(array.getLast());
+        System.out.println(array.arrayLength());
 
-//		System.out.println("Поcледний индекс: " + array.lastIndex());
-//		array.get(5);	
-//		array.getFirst();
-//		array.getLast();
-//		array.remove(1.3);
-//		array.remove(0);
-//		array.arrayLength();
-//			 
-
+		
+		
 		// task3
+        System.out.println();
+        System.out.println("Task3");
+        Integer[][] array1 = {{1, 2, 3, 4}, {3, 2, 1}, {2, 3, 4}};
+        ArrayIterator<Integer> arrIterator = new ArrayIterator<>(array1);
 
-		Integer[] array = { 1, 2, 3, 4, 5, 6 };
-		ArrayItterator<Integer> arrItterator = new ArrayItterator<Integer>(array);
-
-		while (arrItterator.hasNext()) {
-			Integer i = arrItterator.next();
-			System.out.println(i);
-		}
+        while (arrIterator.hasNext()) {
+            System.out.print(arrIterator.next());
+        }
 
 	}
 
