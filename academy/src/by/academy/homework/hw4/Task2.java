@@ -20,7 +20,7 @@ import java.util.Arrays;
 
 public class Task2<T extends Object> {
 
-	private T[] array;
+	private T[] array; 
 	private static final int DEFAULT_CAPACITY = 16;
 	private int countElements = 0;
 

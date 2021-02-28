@@ -23,7 +23,7 @@ public class ArrayIterator<T> implements Iterator<T> {
             if (cursorLength == array[cursorHeight].length) {
                 cursorLength = 0;
                 cursorHeight++;
-            }
+            } 
         }
         return cursorHeight < array.length;
     }

@@ -2,14 +2,8 @@ package by.academy.homework.hw4;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.text.DateFormat;
+import java.time.temporal.ChronoUnit;
 import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 //Создать объект класса Date, используя вложенные классы Год, Месяц, День. 
 //Методы: задать дату, вывести на консоль день недели по заданной дате. 
@@ -19,39 +13,43 @@ import java.util.GregorianCalendar;
 //После валидации в конструкторе создаем объекты класса Year, Month, Day.
 //Добавить метод, который проверяет высокосный ли год или нет.
 
-
-
-//сохдаем парс
-//парсим дату - берем первые 2 цифры - день
-//вторые 2 цифры в месяцы
-//4 последние в года
-//set and get
-//парсы статические
-//и единственное поле инт валуе, которые мы используем при конструировании локал дейтов
-
-
-
 public class Date {
 
+	private Year year;
+	private Month month;
+	private Day day;
+	private final DateValidator dv = new DateValidator();
 	public String date1;
 	public String secondDate;
 
-	Date(String date1) {
-		super();
-		this.date1 = date1;
-	}
-
-	Date() {
+	public Date() {
 		super();
 	}
 
+	public void setDate(String date) {
+		this.date1=date;
+		validateDate(date);
+	}
+
+	// Один из конструкторов - строка в формате dd-mm-yyyy, добавить валидацию для
+	// этой строки.
+	private void validateDate(String date) {
+		if (dv.validate(date)) {
+			this.year = new Year(Integer.parseInt(date.substring(6, 10)));
+			this.month = new Month(Integer.parseInt(date.substring(3, 5)));
+			this.day = new Day(Integer.parseInt(date.substring(0, 2)));
+		} else {
+			System.out.println("Введите корректную дату придерживаясь формата : \"dd-mm-yyyy\"");
+		}
+	}
+ 
 	// выводим день недели красиво
 	public String printDayOfWeek() throws ParseException {
 
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 		java.util.Date dayWeek = null;
 		dayWeek = format.parse(date1);
-		System.out.println(new SimpleDateFormat("EEEE").format(dayWeek));
+//		System.out.println(new SimpleDateFormat("EEEE").format(dayWeek));
 		return (new SimpleDateFormat("EEEE").format(dayWeek));
 
 	}
@@ -61,51 +59,51 @@ public class Date {
 		DaysWeek currentDay = DaysWeek.valueOf(printDayOfWeek());
 		switch (currentDay) {
 		case Monday:
-			System.out.println("Сегодня понедельник");
+			System.out.println("Понедельник");
 			break;
 		case Tuesday:
-			System.out.println("Сегодня вторник");
+			System.out.println("Вторник");
 			break;
 		case Wednesday:
-			System.out.println("Сегодня среда");
+			System.out.println("Среда");
 			break;
 		case Thursday:
-			System.out.println("Сегодня четверг");
+			System.out.println("Четверг");
 			break;
 		case Friday:
-			System.out.println("Пятница развратница");
+			System.out.println("Пятница");
 			break;
 		case Saturday:
-			System.out.println("Сегодня суббота");
+			System.out.println("Суббота");
 			break;
 		case Sunday:
-			System.out.println("Сегодня воскресенье");
-			break;   
+			System.out.println("Воскресенье");
+			break;
 		default:
 			System.out.println("Ты пьян");
 		}
 	}
 
 	// рассчет между двумя датами
-	public void rasschetDneiVPromezhutke(String date1, String date2) throws ParseException {
- 
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	public long getDaysBetweenTwoDates(Date date) {
+		LocalDate ld1 = LocalDate.of(getYear(), getMonth(), getDay());
+		LocalDate ld2 = LocalDate.of(date.getYear(), date.getMonth(), date.getDay());
+		System.out.print("Дней между двумя датами: ");
+		return Math.abs(ChronoUnit.DAYS.between(ld1, ld2));
+	}
 
-		LocalDate firstDay = LocalDate.parse(date1, dateTimeFormatter); 
-		LocalDate secondDay = LocalDate.parse(date2, dateTimeFormatter);
-
-		Period period = Period.between(firstDay, secondDay);
-
-		System.out.println(period.getDays());
- 
+	// Добавить метод, который проверяет высокосный ли год или нет.
+	public boolean vesGod() {
+		if (getYear() % 4 == 0) {
+			System.out.println("Год високосный");
+			return getYear() % 400 == 0 || getYear() % 100 != 0;
+		}
+		System.out.println("Год невисокосный");
+		return false;
 	}
 
 	public String getDate() {
 		return date1;
-	}
-
-	public void setDate(String date1) {
-		this.date1 = date1;
 	}
 
 	public String getSecondDate() {
@@ -116,25 +114,51 @@ public class Date {
 		this.secondDate = secondDate;
 	}
 
-	public class Year {
-		Year() {
-			super();
-		}
-
+	public int getYear() {
+		return year.getYear();
 	}
 
-	public class Month {
-		Month() {
-			super();
-		}
-
+	public int getMonth() {
+		return month.getMonth();
 	}
 
-	public class Day {
-		Day() {
-			super();
-		}
-
+	public int getDay() {
+		return day.getDay();
 	}
 
+	private static class Year {
+		private final int year;
+
+		Year(int year) {
+			this.year = year;
+		}
+
+		public int getYear() {
+			return year;
+		}
+	}
+
+	private static class Month {
+		private final int month;
+
+		private Month(int month) {
+			this.month = month;
+		}
+
+		public int getMonth() {
+			return month;
+		}
+	}
+
+	private static class Day {
+		private final int day;
+
+		private Day(int day) {
+			this.day = day;
+		}
+
+		private int getDay() {
+			return day;
+		}
+	}
 }
