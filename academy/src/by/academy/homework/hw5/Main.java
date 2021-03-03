@@ -1,5 +1,7 @@
 package by.academy.homework.hw5;
 
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -35,28 +37,33 @@ public	static void addMilionElement() {
 		
 		ArrayList<Integer> arList = new ArrayList<>();
 
-		for (int i = 1; i <= 1_000_000; i++) {
+		for (int i = 0; i < 1_000_000; i++) {
 			arList.add(i);
 		}
 
 		LinkedList<Integer> liList = new LinkedList<>();
-		for (int i = 1; i <= 1_000_000; i++) {
+		for (int i = 0; i <= 1_000_000; i++) {
 			liList.add(i);
+			
 		}
+		 long startTime2 = System.currentTimeMillis();
+		  for (int i2 = 0; i2 < 100; i2++) {
+	        	liList.get((int) (Math.random() * (1_000_000 - 1)));
+
+	        	 	        }
+	        System.out.println(System.currentTimeMillis() - startTime2);
+	        
+	        
 		
 		 long startTime = System.currentTimeMillis();
-	        for (int i = 0; i < 100_000; i++) {
+	        for (int i = 0; i < 100; i++) {
 	        	arList.get((int) (Math.random() * (1_000_000 - 1)));
+	
 	        }
 	        System.out.println(System.currentTimeMillis() - startTime);
-	        System.out.println("Te");
+	        
+	        
 
-	        long startTime22 = System.currentTimeMillis();
-	        for (int i = 0; i < 100_000; i++) {
-	        	liList.get((int) (Math.random() * (1_000_000 - 1)));
-	        }
-	        System.out.println(System.currentTimeMillis() - startTime2);
-	        System.out.println("Te");	
 	
 	}
 
