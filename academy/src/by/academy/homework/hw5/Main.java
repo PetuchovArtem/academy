@@ -15,10 +15,10 @@ public class Main {
 	public static void main(String[] args) {
 
 		ArrayList<Integer> numbers = new ArrayList<>(Arrays.asList(1, 1, 2, 2, 3, 4, 4, 5, 6, 7));
-//		System.out.println(numbers);
-//		System.out.println(removeDuplicates(numbers));
-//
-//			addMilionElement();
+		System.out.println(numbers);
+		System.out.println(removeDuplicates(numbers));
+
+			addMilionElement();
 
 		// Задача 4.
 		// Создать список оценок учеников с помощью ArryList, заполнить случайными
@@ -44,7 +44,6 @@ public class Main {
 			if (flag < element) {
 				flag = element;
 			}
-
 		}
 		System.out.println(flag);
 

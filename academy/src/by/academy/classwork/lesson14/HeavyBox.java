@@ -62,16 +62,16 @@ public class HeavyBox extends Box implements Comparable<HeavyBox>{
 		return true;
 	}
 
-	@Override
-	public int compareTo(HeavyBox o) {
-
-        int result = weight.compareTo(o.getWeight());
-
-        if (result == 0) {
-            result = weight.compareTo(o.getWeight());
-        }
-        return result;
-    }
+//	@Override
+//	public int compareTo(HeavyBox o) {
+//
+//        int result = weight.compareTo(o.getWeight());
+//
+//        if (result == 0) {
+//            result = weight.compareTo(o.getWeight());
+//        }
+//        return result;
+//    }
 
 
 }
