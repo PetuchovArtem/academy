@@ -7,7 +7,7 @@ public class EmailValidator implements Validator {
    
     @Override
     public boolean validator(String strEmailValidator) {
-    	 public final static Pattern pattern = Pattern.compile("^([a-z0-9_\\-]+\\.)*[a-z0-9_\\-]+@[a-z0-9_\\-]+(\\.[a-z0-9_\\-]+)*\\.[a-z]{2,6}$");
+    	 final Pattern pattern = Pattern.compile("^([a-z0-9_\\-]+\\.)*[a-z0-9_\\-]+@[a-z0-9_\\-]+(\\.[a-z0-9_\\-]+)*\\.[a-z]{2,6}$");
 
        		Matcher matcher = pattern.matcher(strEmailValidator);
        			return matcher.matches();
