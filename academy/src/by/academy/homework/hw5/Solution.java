@@ -1,6 +1,5 @@
 package by.academy.homework.hw5;
 
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -53,7 +52,7 @@ public class Solution {
 		}
 	}
 
-	// Complete the reverse function below.
+// Complete the reverse function below.
 
 	/*
 	 * For your reference:
@@ -63,8 +62,19 @@ public class Solution {
 	 *
 	 */
 	public static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
-		
-		return null;
+		if (head == null) {
+			return null;
+		}
+		while (head != null) {
+			DoublyLinkedListNode tmp = head.prev;
+			head.prev = head.next;
+			head.next = tmp;
+			if (head.prev == null) {
+				return head;
+			}
+			head = head.prev;
+		}
+		return head;
 	}
 
 	private static final Scanner scanner = new Scanner(System.in);
