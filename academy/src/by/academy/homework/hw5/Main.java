@@ -115,7 +115,7 @@ public class Main {
 		}
 		long startTime2 = System.currentTimeMillis();
 		System.out.println("LinkedList time: ");
-		for (int i2 = 0; i2 < 100; i2++) {
+		for (int i2 = 0; i2 < 100; i2++) { // беру 100 раз, т.к. у меня ноутбук умирает, если брать 100_000
 			liList.get((int) (Math.random() * (1_000_000 - 1)));
 
 		}
@@ -123,7 +123,7 @@ public class Main {
 
 		long startTime = System.currentTimeMillis();
 		System.out.println("ArrayList time: ");
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 100; i++) { // беру 100 раз, т.к. у меня ноутбук умирает, если брать 100_000
 			arList.get((int) (Math.random() * (1_000_000 - 1)));
 
 		}

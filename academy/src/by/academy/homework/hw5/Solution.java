@@ -61,8 +61,10 @@ public class Solution {
 	 * DoublyLinkedListNode prev; }
 	 *
 	 */
+	
+	// task7
 	public static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
-		if (head == null) {
+		if (head == null) { 
 			return null;
 		}
 		while (head != null) {
