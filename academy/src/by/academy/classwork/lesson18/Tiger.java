@@ -32,6 +32,12 @@ public class Tiger extends Cat {
 		return petsName1;
 	}
 
+	private void run() {
+		System.out.println("tiger run run");
+	}
+
+	
+	
 	public void setPetsName1(String petsName1) {
 		this.petsName1 = petsName1;
 	}
