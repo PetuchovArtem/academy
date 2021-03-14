@@ -1,5 +1,6 @@
 package by.academy.deal;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ import java.util.Scanner;
 
 public class Application {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException, IOException {
 
 		boolean menu = true;
 		int menuChoose;
@@ -64,6 +65,7 @@ public class Application {
 				deal.printProducts();
 
 				deal.deal();
+				deal.printBillinFile();
 				System.out.println("--------------------------------");
 				System.out.print("Deal DeadLinel: ");
 

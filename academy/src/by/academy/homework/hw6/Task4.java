@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 //Создайте каталог(папку). Создайте в папке 100 txt файлов 
 //(Например, 1.txt, 2.txt ... 100.txt). Считываем текст из 2-ого задания, 
@@ -11,6 +12,7 @@ import java.io.IOException;
 //число от 0 до 576, достаем из текста (из 2 задания) такое-же количество 
 //символов (string.substring()) и сохраняем в наш файл. Создайте файл result.txt 
 //и запишите туда список всех файлов и их размеры.
+
 public class Task4 {
 
 	public static void main(String[] args) {
@@ -22,8 +24,12 @@ public class Task4 {
 			dir.mkdir();
 		}
 		// создаем 100 файлов
+		int diff = 576;
+		Random rand = new Random();
 		for (int i = 1; i < 101; i++) {
-			int k = (int) (Math.random() * sb.length());
+
+			int k = (int) rand.nextInt(diff + 1);
+
 			File file = new File(dir, i + ".txt");
 
 			// считываем файл 2 задания

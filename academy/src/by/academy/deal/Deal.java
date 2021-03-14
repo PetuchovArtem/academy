@@ -1,5 +1,8 @@
 package by.academy.deal;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class Deal {
@@ -99,6 +102,29 @@ public class Deal {
 		System.out.println("Сумма " + summ);
 		buyer.setMoney(buyer.getMoney() - summ);
 		seller.setMoney(seller.getMoney() + summ);
+				
+	}
+	
+	public void printBillinFile() throws IOException {
+		double summ = 0;
+		File file = new File("DealBill.txt");
+		file.createNewFile();
+		try (FileWriter writer = new FileWriter(file)) {
+			writer.write(("Дата сделки " + DealDateValidator.getDate()+"\n"));
+			for (Product product : products) {
+				if (product != null) {
+					double totalProductPrice = product.calcFinalPrice();
+					summ += totalProductPrice;
+					writer.write(product.getName() + " " + product.getPrice() + " X " + product.getQuantity() + " = "
+							+ totalProductPrice + "(Скидка " + ((1 - product.disount()) * 100) + "%)"+"\n");
+								}
+							}
+			writer.write("\n" + "Сумма " + summ);		
+			
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 
 	public void printProducts() {
