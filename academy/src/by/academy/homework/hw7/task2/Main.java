@@ -91,12 +91,12 @@ public class Main {
 	            Field[] declaredFieldsUserValue = userClass.getDeclaredFields();
 	            for (Field field : declaredFieldsUserValue) {
 	                field.setAccessible(true);
-	                System.out.println(field.get(user));
+	                System.out.println(field.get(ArtemUser));
 	            }
 	            Field[] declaredFieldsUserSuperValue = userSuperClass.getDeclaredFields();
 	            for (Field field : declaredFieldsUserSuperValue) {
 	                field.setAccessible(true);
-	                System.out.println(field.get(user));
+	                System.out.println(field.get(ArtemUser));
 	            }
 	        } catch (IllegalAccessException e) {
 	            e.printStackTrace();
@@ -106,31 +106,31 @@ public class Main {
 	        try {
 	            Field fieldLogin = userClass.getDeclaredField("login");
 	            fieldLogin.setAccessible(true);
-	            fieldLogin.set(user, "alalal");
+	            fieldLogin.set(ArtemUser, "alalal");
 
 	            Field fieldPassword = userClass.getDeclaredField("password");
 	            fieldPassword.setAccessible(true);
-	            fieldPassword.set(user, "alalal");
+	            fieldPassword.set(ArtemUser, "alalal");
 
 	            Field fieldEmail = userClass.getDeclaredField("email");
 	            fieldEmail.setAccessible(true);
-	            fieldEmail.set(user, "alalal@mail.ru");
+	            fieldEmail.set(ArtemUser, "alalal@mail.ru");
 
 	            Field fieldsFirstName = userSuperClass.getDeclaredField("firstName");
 	            fieldsFirstName.setAccessible(true);
-	            fieldsFirstName.set(user, "alalal");
+	            fieldsFirstName.set(ArtemUser, "alalal");
 
 	            Field fieldsLastName = userSuperClass.getDeclaredField("lastName");
 	            fieldsLastName.setAccessible(true);
-	            fieldsLastName.set(user, "alalal");
+	            fieldsLastName.set(ArtemUser, "alalal");
 
 	            Field fieldsLastAge = userSuperClass.getDeclaredField("age");
 	            fieldsLastAge.setAccessible(true);
-	            fieldsLastAge.set(user, 3);
+	            fieldsLastAge.set(ArtemUser, 3);
 
 	            Field fieldsLastDateOfBirth = userSuperClass.getDeclaredField("dateOfBirth");
 	            fieldsLastDateOfBirth.setAccessible(true);
-	            fieldsLastDateOfBirth.set(user, LocalDate.of(2018, 1, 1));
+	            fieldsLastDateOfBirth.set(ArtemUser, LocalDate.of(2020, 1, 1));
 
 	        } catch (NoSuchFieldException | IllegalAccessException e) {
 	            System.out.println(e.getMessage());
@@ -140,14 +140,14 @@ public class Main {
 
 	        try {
 	            Method userPrintUserInfo = userClass.getDeclaredMethod("printUserInfo");
-	            System.out.println(userPrintUserInfo.invoke(user));
+	            System.out.println(userPrintUserInfo.invoke(ArtemUser));
 	        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
 	            System.out.println(e.getMessage());
 	        }
 	    }
 	}
 
-}
+
 
 //getMethod("name")
 //getMethods()
