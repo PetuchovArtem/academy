@@ -106,7 +106,7 @@ public class Main {
 	        try {
 	            Field fieldLogin = userClass.getDeclaredField("login");
 	            fieldLogin.setAccessible(true);
-	            fieldLogin.set(ArtemUser, "alalal");
+	            fieldLogin.set(ArtemUser, "newLogin");
 
 	            Field fieldPassword = userClass.getDeclaredField("password");
 	            fieldPassword.setAccessible(true);
@@ -114,15 +114,15 @@ public class Main {
 
 	            Field fieldEmail = userClass.getDeclaredField("email");
 	            fieldEmail.setAccessible(true);
-	            fieldEmail.set(ArtemUser, "alalal@mail.ru");
+	            fieldEmail.set(ArtemUser, "newEmail@mail.ru");
 
 	            Field fieldsFirstName = userSuperClass.getDeclaredField("firstName");
 	            fieldsFirstName.setAccessible(true);
-	            fieldsFirstName.set(ArtemUser, "alalal");
+	            fieldsFirstName.set(ArtemUser, "newName");
 
 	            Field fieldsLastName = userSuperClass.getDeclaredField("lastName");
 	            fieldsLastName.setAccessible(true);
-	            fieldsLastName.set(ArtemUser, "alalal");
+	            fieldsLastName.set(ArtemUser, "newLastName");
 
 	            Field fieldsLastAge = userSuperClass.getDeclaredField("age");
 	            fieldsLastAge.setAccessible(true);
